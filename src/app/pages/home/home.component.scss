@@ -1,0 +1,85 @@
+#home {
+    height: 100vh;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))),  url(/assets/img/hero-bg.jpg);
+    background-image: -o-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),  url(/assets/img/hero-bg.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),  url(/assets/img/hero-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+h2 {
+    font-size: 4.5rem;
+}
+
+.animated-letters {
+    font-size: 2.5rem;
+    position: relative;
+}
+
+
+.animated-letters p {
+    position: absolute;
+    visibility: hidden;
+    width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid black;
+    animation: typing 10s steps(20, end) infinite, blink 2s step-end infinite alternate;
+    opacity: 0;
+    text-align: left;
+}
+
+@keyframes typing {
+    0% {
+        visibility: hidden;
+        width: 0;
+        opacity: 0;
+    }
+    10% {
+        visibility: visible;
+        width: 10ch; /* Adjust width to fit the text */
+        opacity: 1;
+    }
+    20% {
+        visibility: hidden;
+        width: 0;
+        opacity: 0;
+    }
+}
+
+/* Show the correct paragraph at the right time */
+.animated-letters p:nth-child(1) {
+    animation-delay: 0s;
+    position: relative;
+}
+
+.animated-letters p:nth-child(2) {
+    animation-delay: 2s;
+    position: absolute;
+    top: 0;
+}
+
+.animated-letters p:nth-child(3) {
+    animation-delay: 4s;
+    position: absolute;
+    top: 0;
+}
+
+.animated-letters p:nth-child(4) {
+    animation-delay: 6s;
+    position: absolute;
+    top: 0;
+}
+
+.animated-letters p:nth-child(5) {
+    animation-delay: 8s;
+    position: absolute;
+    top: 0;
+}
+
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }

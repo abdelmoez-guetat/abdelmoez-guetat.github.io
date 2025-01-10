@@ -1,0 +1,112 @@
+<section id="contact" class="vh-100 d-flex justify-content-center align-items-center">
+    <div class="container">
+        <div class="bg-light shadow p-5 rounded">
+            <div class="row">
+                <!-- Message Us Section -->
+                <div class="col-md-6">
+                    <div>
+                        <div class="mb-4">
+                            <h4>Send Me a Message</h4>
+                            <div class="line"></div>
+                        </div>
+                        <div>
+                            <!-- Form binding to Angular Template-driven Form -->
+                            <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+                                <div class="mb-3">
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="name" 
+                                        name="name" 
+                                        placeholder="Your Name" 
+                                        required 
+                                        [(ngModel)]="name">
+                                </div>
+                                <div class="mb-3">
+                                    <input 
+                                        type="email" 
+                                        class="form-control" 
+                                        id="email" 
+                                        name="email" 
+                                        placeholder="Your Email" 
+                                        required 
+                                        [(ngModel)]="email">
+                                </div>
+                                <div class="mb-3">
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="subject" 
+                                        name="subject" 
+                                        placeholder="Subject" 
+                                        [(ngModel)]="subject">
+                                </div>
+                                <div class="mb-3">
+                                    <textarea 
+                                        class="form-control" 
+                                        id="message" 
+                                        name="message" 
+                                        rows="8" 
+                                        placeholder="Your Message" 
+                                        required 
+                                        [(ngModel)]="message">
+                                    </textarea>
+                                </div>
+                                <div class="col-auto text-center">
+                                    <button 
+                                        type="submit" 
+                                        class="btn btn-primary mb-3 rounded-5">
+                                        Send Message
+                                    </button>
+                                </div>
+                            </form>
+
+                            <!-- Show error message if form submission fails -->
+                            <div *ngIf="errorMessage" class="alert alert-danger mt-3" role="alert">
+                                {{ errorMessage }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Get in Touch Section -->
+                <div class="col-md-6">
+                    <div>
+                        <div class="mb-4">
+                            <h4>Get in Touch</h4>
+                            <div class="line"></div>
+                        </div>
+                        <p class="lead mb-4">Have questions or want to discuss a potential project? I'm always open to new opportunities, collaborations, and feedback. Let's connect!</p>
+                        <ul class="list-group mb-4">
+                            <li class="list-group-item"><span class="bi bi-geo-alt"></span> Paris, France</li>
+                        </ul>
+                        <ul class="d-flex gap-2 justify-content-center align-items-center">
+                            <li class="d-flex">
+                                <a class="btn btn-outline-primary rounded-circle" href="https://www.linkedin.com/in/abdelmoez-guetat" target="_blank"><span class="bi bi-linkedin"></span></a>
+                            </li>
+                            <li class="d-flex">
+                                <a class="btn btn-outline-primary rounded-circle" href="https://github.com/abdelmoez-guetat" target="_blank"><span class="bi bi-github"></span></a>
+                            </li>
+                            <li class="d-flex">
+                                <a class="btn btn-outline-primary rounded-circle" href="https://www.credential.net/profile/abdelmoez-guetat/wallet" target="_blank"><span class="bi bi-patch-check"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div [class.fade]="showToast" 
+     [class.show]="showToast" 
+     [class.d-none]="!showToast" 
+     class="toast align-items-center text-bg-danger border-0 position-fixed bottom-0 end-0 m-3" 
+     role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+        <div class="toast-body">
+            An error occurred while sending your message
+        </div>
+        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+</div>
